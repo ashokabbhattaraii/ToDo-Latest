@@ -1,0 +1,112 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+:root {
+ 
+  --primary-color: #4CAF50;         /* Green – main action buttons */
+  --secondary-color: #8BC34A;       /* Light green – highlights/hover */
+
+  --text-color: #333333;            /* Default dark text */
+  --text-light: #777777;      
+    
+  --bg-color: #FFFFFF;              /* Main background */
+  --bg-light: #F4F4F4;              /* Cards / list background */
+
+  --success-color: #4CAF50;
+  --warning-color: #FFC107;
+  --danger-color: #F44336;
+
+  --font-family: "Poppins", sans-serif;
+  --font-size-base: 16px;
+}
+body{
+ background-color: var(--secondary-color);
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 400px;
+    
+    margin: 200px auto;
+    background-color: var(--primary-color);
+    padding: 20px;
+    border-radius: 6px;
+
+
+}
+.heading{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+    gap: 1rem;
+    color: var(--text-color);
+    width: 100%;
+    
+}
+.inputArea{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 0.4em;
+}
+.inputArea input{
+    flex: 1;
+    height: 35px;
+    border-radius: 6px;
+    outline: none;
+    border: 2px solid orange;
+    padding: 10px;
+    box-shadow: 2px 2px 20px  red;
+}
+.inputArea input::placeholder{
+    
+    font-weight: 200;
+}
+
+.inputArea img{
+    height: 35px;
+    border-radius: 50%;
+    box-shadow: 2px 2px 20px red;
+}
+.listTodo{
+    margin-top: 2em;
+
+    width: 100%;
+
+}
+#lists li{
+    list-style: none;
+    width: 100%;
+    font-family: var(--font-family);
+    font-size: 16px;
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+   display: flex;
+   background-color: var(--bg-light);
+   margin-bottom: 4px;
+    border-radius: 6px;
+    padding: 5px;
+    padding-left: 10px;
+    
+    
+}
+.delImg{
+    height: 25px;
+    margin: 0 15px;
+}
+.markComplete{
+margin-left:auto;
+height: 25px;
+
+}
+
+
+
