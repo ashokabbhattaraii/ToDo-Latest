@@ -72,7 +72,7 @@ body{
 }
 .listTodo{
     margin-top: 2em;
-
+    overflow: scroll;
     width: 100%;
 
 }
@@ -84,6 +84,7 @@ body{
     color: var(--text-color);
     display: flex;
     align-items: center;
+    align-content: center;
    display: flex;
    background-color: var(--bg-light);
    margin-bottom: 4px;
@@ -94,11 +95,18 @@ body{
 }
 .delImg{
     height: 25px;
-    margin: 0 15px;
+    margin-bottom: -4px;
+
+}
+.editIcon{
+    height: 25px;
+    margin-left: 4px;
 }
 .markComplete{
 margin-left:auto;
 height: 25px;
+margin-bottom: -4px;
+
 
 
 }
@@ -109,4 +117,11 @@ height: 25px;
 }
 
 
+.edit-input{
+    height: 25px;
+    background: transparent;
+    outline: none;
+    border-radius: 6px;
+    padding-left: 10px;
 
+}

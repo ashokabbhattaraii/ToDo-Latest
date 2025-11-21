@@ -1,3 +1,6 @@
+
+
+
 const addList = document.querySelector('#addList')
 var inputField = document.querySelector('#todoField')
 const lists = document.querySelector("#lists")
@@ -26,19 +29,25 @@ addList.addEventListener('click',()=>{
     const li = document.createElement('li');
     const checkbox = document.createElement('img')
     checkbox.src="./materials/icons8-checkbox-50.png"
+    const editImg = document.createElement('img')
+    editImg.src="./materials/icons8-edit-50.png"
+    editImg.className="editIcon"
     const delImg = document.createElement('img')
     delImg.src="./materials/icons8-delete.svg"
     delImg.className="delImg"
     
     checkbox.className="markComplete"
     li.innerText=todo
+    
     li.appendChild(checkbox)
+    li.appendChild(editImg)
     li.appendChild(delImg)
     
      listsData.push({
         sattus:taskCompleted,
         liElement:li,
         checkbox:checkbox,
+        editImg:editImg,
         delIcon: delImg,
         text:todo
      });
@@ -59,7 +68,7 @@ addList.addEventListener('click',()=>{
 function appendList(listsData, li) {
   
   lists.appendChild(li);
-
+    console.log(listsData)
 
     listsData.forEach((item, index) => {
       
@@ -74,6 +83,9 @@ function appendList(listsData, li) {
             toggleTodoStatus(item)
             console.log(listsData)
         })
+        item.editImg.addEventListener('click',()=>{
+            editTask(item,index)
+        })
     });
 }
 
@@ -83,15 +95,52 @@ function toggleTodoStatus(todoObj) {
         ? "./materials/icons8-checkbox-50 (1).png" 
         : "./materials/icons8-checkbox-50.png"; 
 
-       saveToLocal();
+
+
+  todoObj.text = todoObj.text; 
+  saveToLocal();
 
 }
-
-window.addEventListener('load',()=>{
-    const tasks = loadFromLocal()
-    console.log(tasks)
-})
+function editTask(item, index) {
+    const li = item.liElement;
 
 
+    let currentText = item.text;
+
+   
+    const input = document.createElement('input');
+    input.type = 'text';
+    input.value = currentText;
+    input.className = 'edit-input';
+
+    li.innerText = ''; 
+    li.appendChild(input);
+    li.appendChild(item.checkbox);
+    li.appendChild(item.editImg);
+    li.appendChild(item.delIcon);
+
+    input.focus();
+    input.select();
+
+    input.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            const newText = input.value.trim();
+            if (newText) {
+                item.text = newText;
+                li.innerText = newText;
+                li.appendChild(item.checkbox);
+                li.appendChild(item.editImg);
+                li.appendChild(item.delIcon);
+                saveToLocal();
+            }
+        } else if (e.key === 'Escape') {
+            li.innerText = currentText;
+            li.appendChild(item.checkbox);
+            li.appendChild(item.editImg);
+            li.appendChild(item.delIcon);
+        }
+    });
+
+}
 
 
