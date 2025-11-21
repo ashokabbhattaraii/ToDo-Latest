@@ -30,7 +30,7 @@ body{
     background-color: var(--primary-color);
     padding: 20px 30px;
     border-radius: 6px;
-
+    box-shadow: 3px 3px 25px green;
 
 }
 .heading{
@@ -72,7 +72,7 @@ body{
 }
 .listTodo{
     margin-top: 2em;
-    overflow: scroll;
+    overflow: hidden;
     width: 100%;
 
 }

@@ -54,12 +54,19 @@ addList.addEventListener('click',()=>{
   
    saveToLocal(listsData)
    appendList(listsData,li)
+  
+ 
     msg.innerHTML="Task listed successsfully"
         msg.style.color="green"
     inputField.value=""
     }
 
 })
+inputField.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+        addList.click(); // triggers the addList click handler
+    }
+});
 
 
 
@@ -68,6 +75,7 @@ addList.addEventListener('click',()=>{
 function appendList(listsData, li) {
   
   lists.appendChild(li);
+
     console.log(listsData)
 
     listsData.forEach((item, index) => {
